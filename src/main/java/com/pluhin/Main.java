@@ -28,7 +28,7 @@ public class Main {
   private static File readFile(String filePath) {
     File file = new File(filePath);
     assert file.exists();
-    assert (file.canRead());
+    assert file.canRead();
 
     return file;
   }
