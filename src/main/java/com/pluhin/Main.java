@@ -1,10 +1,13 @@
 package com.pluhin;
 
-import com.itextpdf.text.DocumentException;
+import com.pluhin.converter.PDFConverter;
+import com.pluhin.converter.impl.FlyingSaucerPDFConverter;
 import java.io.File;
 import java.io.IOException;
 
 public class Main {
+
+  private static PDFConverter CONVERTER = new FlyingSaucerPDFConverter();
 
   private static final String SOURCE_FILE_PATH = "src/main/resources/html/input.html";
   private static final String DEST_FILE_PATH = "src/main/resources/pdf/output.pdf";
@@ -12,15 +15,14 @@ public class Main {
   public static void main(String[] args) {
     prepareOutput(DEST_FILE_PATH);
     File file = readFile(SOURCE_FILE_PATH);
-    PDFConverter converter = new PDFConverter();
 
     try {
-      converter.process(file, DEST_FILE_PATH);
+      CONVERTER.convert(file, DEST_FILE_PATH);
     } catch (IOException e) {
       System.out.println("ERROR: Reading input or writing to output");
       throw new RuntimeException(e);
-    } catch (DocumentException e) {
-      System.out.println("ERROR: Creating pdf writer");
+    } catch (Exception e) {
+      System.out.println("ERROR: Creating pdf");
       throw new RuntimeException(e);
     }
   }

@@ -22,9 +22,19 @@
 
   <properties>
     <itext.version>5.5.12</itext.version>
+    <flying.sauser.version>9.1.9</flying.sauser.version>
   </properties>
 
   <dependencies>
+
+    <!--Flying sauser dependency-->
+    <dependency>
+      <groupId>org.xhtmlrenderer</groupId>
+      <artifactId>flying-saucer-pdf</artifactId>
+      <version>${flying.sauser.version}</version>
+    </dependency>
+
+    <!--iText dependencies-->
     <dependency>
       <groupId>com.itextpdf</groupId>
       <artifactId>itextpdf</artifactId>
