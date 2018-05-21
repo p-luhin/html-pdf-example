@@ -14,10 +14,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * {@link PDFConverter} implementation using IText pdf converter.
+ */
 public class ITextPDFConverter implements PDFConverter {
 
   private static final Integer PDF_COL_NUM = 1;
 
+  /**
+   * {@inheritDoc}
+   * @param htmlFile input html file to be converted to PDF
+   * @param destFilePath path to locate destination PDF
+   * @throws IOException in case with saving file error
+   * @throws DocumentException in case with writing data to document error
+   */
   @Override
   public void convert(File htmlFile, String destFilePath)
       throws IOException, DocumentException {

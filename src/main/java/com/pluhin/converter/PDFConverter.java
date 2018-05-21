@@ -5,6 +5,9 @@ import static java.nio.file.Files.lines;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Interface used for converting html files to pdf format.
+ */
 public interface PDFConverter {
 
   /**
